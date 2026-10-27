@@ -1,4 +1,6 @@
 :root {
+  /* La página solo tiene versión clara: evita que el navegador la oscurezca. */
+  color-scheme: only light;
   --papel: #F6F3EA;
   --mantequilla: #F2E3AE;
   --nube: #CDD0DB;
