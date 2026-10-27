@@ -21,37 +21,60 @@ function libro_() {
   return SpreadsheetApp.getActive() || SpreadsheetApp.openById(SHEET_ID);
 }
 
+// Límite contra quien intente adivinar códigos: si hay demasiados códigos
+// equivocados en poco tiempo, se pausan las búsquedas unos minutos.
+var MAX_FALLOS = 40;
+var VENTANA_SEG = 600;
+var MAX_CUERPO = 5000;
+var ERROR_GENERICO = 'Algo salió mal. Inténtalo de nuevo en unos minutos.';
+
 function doGet(e) {
-  var p = (e && e.parameter) || {};
-  if (p.action === 'buscar') return json_(buscarGrupo_(p.codigo));
-  return json_({ ok: false, error: 'Acción no válida.' });
+  try {
+    var p = (e && e.parameter) || {};
+    if (p.action === 'buscar') return json_(buscarGrupo_(p.codigo));
+    return json_({ ok: false, error: 'Acción no válida.' });
+  } catch (err) {
+    console.error(err);
+    return json_({ ok: false, error: ERROR_GENERICO });
+  }
 }
 
 function doPost(e) {
   var datos;
   try {
-    datos = JSON.parse(e.postData.contents);
+    var cuerpo = (e && e.postData && e.postData.contents) || '';
+    if (cuerpo.length > MAX_CUERPO) return json_({ ok: false, error: 'Datos inválidos.' });
+    datos = JSON.parse(cuerpo);
   } catch (err) {
     return json_({ ok: false, error: 'Datos inválidos.' });
   }
   var lock = LockService.getScriptLock();
-  lock.waitLock(20000);
+  if (!lock.tryLock(20000)) return json_({ ok: false, error: ERROR_GENERICO });
   try {
     return json_(guardar_(datos));
+  } catch (err) {
+    console.error(err);
+    return json_({ ok: false, error: ERROR_GENERICO });
   } finally {
     lock.releaseLock();
   }
 }
 
 function buscarGrupo_(codigo) {
+  var cache = CacheService.getScriptCache();
+  var fallos = Number(cache.get('fallos') || 0);
+  if (fallos >= MAX_FALLOS) return { ok: false, error: 'Demasiados intentos. Espera unos minutos e inténtalo de nuevo.' };
   var g = encontrarGrupo_(codigo);
-  if (!g) return { ok: false, error: 'No encontramos ese código. Revísalo en tu invitación.' };
+  if (!g) {
+    cache.put('fallos', String(fallos + 1), VENTANA_SEG);
+    return { ok: false, error: 'No encontramos ese código. Revísalo en tu invitación.' };
+  }
   return { ok: true, codigo: g.codigo, grupo: g.grupo, integrantes: g.integrantes, previas: respuestasPrevias_(g) };
 }
 
 function encontrarGrupo_(codigo) {
   codigo = String(codigo || '').trim().toUpperCase();
-  if (!codigo) return null;
+  if (!/^[A-Z0-9]{3,20}$/.test(codigo)) return null;
   var hoja = libro_().getSheetByName(HOJA_INVITADOS);
   var filas = hoja.getRange(2, 1, Math.max(hoja.getLastRow() - 1, 1), 3).getValues();
   for (var i = 0; i < filas.length; i++) {
@@ -86,11 +109,15 @@ function respuestasPrevias_(g) {
 }
 
 function guardar_(datos) {
-  var g = encontrarGrupo_(datos && datos.codigo);
+  if (!datos || typeof datos !== 'object' || !Array.isArray(datos.respuestas)) return { ok: false, error: 'Datos inválidos.' };
+  var g = encontrarGrupo_(datos.codigo);
   if (!g) return { ok: false, error: 'Código no válido.' };
 
-  var porNombre = {};
-  (datos.respuestas || []).forEach(function (r) { porNombre[r.nombre] = r; });
+  // Solo se aceptan los integrantes que están en el Sheets; lo demás se ignora.
+  var porNombre = Object.create(null);
+  datos.respuestas.forEach(function (r) {
+    if (r && typeof r === 'object' && typeof r.nombre === 'string') porNombre[r.nombre] = r;
+  });
 
   var asistentes = [];
   var menus = [];
