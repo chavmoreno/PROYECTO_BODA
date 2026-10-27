@@ -1,7 +1,8 @@
 /**
  * Backend de la página de la boda (Google Apps Script).
  *
- * Pégalo en el Google Sheets: Extensiones → Apps Script, y publícalo como
+ * Pégalo en Apps Script (desde el Sheets: Extensiones → Apps Script, o en un
+ * proyecto nuevo de script.google.com) y publícalo como
  * "Aplicación web" (Ejecutar como: Yo · Quién tiene acceso: Cualquier usuario).
  *
  *   GET  ?action=buscar&codigo=XXX   → devuelve el grupo y sus integrantes
@@ -12,6 +13,13 @@ var HOJA_INVITADOS = 'Invitados';
 var HOJA_RESPUESTAS = 'Respuestas';
 var HOJA_MENU = 'Menú';
 var MENUS = ['Tradicional', 'Vegetariano'];
+
+// Funciona pegado dentro del Sheets o como proyecto aparte en script.google.com.
+var SHEET_ID = '1-cX6IkeMpuIa4XkZYRq0tctZPNNvjsz9w-VELu1mMR8';
+
+function libro_() {
+  return SpreadsheetApp.getActive() || SpreadsheetApp.openById(SHEET_ID);
+}
 
 function doGet(e) {
   var p = (e && e.parameter) || {};
@@ -44,7 +52,7 @@ function buscarGrupo_(codigo) {
 function encontrarGrupo_(codigo) {
   codigo = String(codigo || '').trim().toUpperCase();
   if (!codigo) return null;
-  var hoja = SpreadsheetApp.getActive().getSheetByName(HOJA_INVITADOS);
+  var hoja = libro_().getSheetByName(HOJA_INVITADOS);
   var filas = hoja.getRange(2, 1, Math.max(hoja.getLastRow() - 1, 1), 3).getValues();
   for (var i = 0; i < filas.length; i++) {
     if (String(filas[i][0]).trim().toUpperCase() === codigo) {
@@ -61,11 +69,11 @@ function encontrarGrupo_(codigo) {
 
 // Si el grupo ya respondió, devuelve lo que eligió para precargar el formulario.
 function respuestasPrevias_(g) {
-  var hoja = SpreadsheetApp.getActive().getSheetByName(HOJA_INVITADOS);
+  var hoja = libro_().getSheetByName(HOJA_INVITADOS);
   var confirmados = separar_(hoja.getRange(g.fila, 5).getValue());
   if (!filaRespuesta_(g.grupo)) return null;
   var menus = {};
-  var hojaMenu = SpreadsheetApp.getActive().getSheetByName(HOJA_MENU);
+  var hojaMenu = libro_().getSheetByName(HOJA_MENU);
   if (hojaMenu.getLastRow() > 1) {
     hojaMenu.getRange(2, 1, hojaMenu.getLastRow() - 1, 2).getValues().forEach(function (r) {
       menus[String(r[0]).trim()] = String(r[1]).trim();
@@ -97,7 +105,7 @@ function guardar_(datos) {
     }
   }
 
-  var ss = SpreadsheetApp.getActive();
+  var ss = libro_();
 
   // Invitados: columna E "Integrantes confirmados" (la F la cuenta con su fórmula).
   ss.getSheetByName(HOJA_INVITADOS).getRange(g.fila, 5).setValue(asistentes.join(' ; '));
@@ -131,7 +139,7 @@ function guardar_(datos) {
 }
 
 function filaRespuesta_(grupo) {
-  var hoja = SpreadsheetApp.getActive().getSheetByName(HOJA_RESPUESTAS);
+  var hoja = libro_().getSheetByName(HOJA_RESPUESTAS);
   if (hoja.getLastRow() < 2) return 0;
   var grupos = hoja.getRange(2, 2, hoja.getLastRow() - 1, 1).getValues();
   for (var i = 0; i < grupos.length; i++) {

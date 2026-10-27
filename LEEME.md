@@ -19,6 +19,7 @@ Página: **https://chavmoreno.github.io/PROYECTO_BODA/**
 ## 1. Conectar el Google Sheets (una sola vez)
 
 1. Abre el Sheets **Bodita master file** → **Extensiones → Apps Script**.
+   - Si sale *"No se pudo abrir el archivo en este momento"*: es porque tienes varias cuentas de Google abiertas. Abre una **ventana de incógnito** (Ctrl + Shift + N), entra solo con la cuenta dueña del Sheets y repite. O bien entra a https://script.google.com con esa cuenta → **Nuevo proyecto** (el código ya sabe cuál es tu Sheets).
 2. Borra lo que haya y pega todo el contenido de `google-sheets/Code.gs`. Guarda.
 3. **Implementar → Nueva implementación** → tipo **Aplicación web**:
    - Ejecutar como: **Yo**
