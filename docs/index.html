@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 
@@ -72,12 +72,14 @@
     </div>
     <div class="detalles">
       <article class="detalle">
+        <span class="detalle-icono"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="19" cy="17" r="9"/><path d="M19 26v18M19 31l-4-3M19 29l4-3"/><path d="M28 44c0-6 3-10 7-10s7 4 7 10"/><path d="M9 44v-7"/><circle cx="9" cy="35" r="2"/><path d="M4 44h40"/></svg></span>
         <p class="eyebrow">Ceremonia · 1:00 PM</p>
         <h3 class="detalle-titulo">Jardín Quinta Real</h3>
         <p>Cuernavaca, Morelos<br>Sábado 6 de noviembre de 2027</p>
         <a class="link" href="https://maps.app.goo.gl/5q1c95rzVZUVkQ62A" target="_blank" rel="noopener">Cómo llegar</a>
       </article>
       <article class="detalle">
+        <span class="detalle-icono"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="10" y="7" width="28" height="37" rx="1"/><path d="M4 44h40"/><path d="M20.5 44v-8h7v8"/><rect x="15" y="13" width="4" height="4"/><rect x="22" y="13" width="4" height="4"/><rect x="29" y="13" width="4" height="4"/><rect x="15" y="22" width="4" height="4"/><rect x="22" y="22" width="4" height="4"/><rect x="29" y="22" width="4" height="4"/></svg></span>
         <p class="eyebrow">Hospedaje</p>
         <h3 class="detalle-titulo">[Hotel sugerido]</h3>
         <p>Menciona nuestra boda para la tarifa especial.<br>Código: [CÓDIGO]</p>
@@ -94,9 +96,9 @@
       <h2 class="titulo">Itinerario</h2>
     </div>
     <ol class="itinerario">
-      <li><span class="hora">1:00 <small>PM</small></span><span class="evento-nombre">Ceremonia</span><span class="muted">Jardín Quinta Real</span></li>
-      <li><span class="hora">5:00 <small>PM</small></span><span class="evento-nombre">Comida</span><span class="muted">Comida, brindis y baile</span></li>
-      <li><span class="hora">2:00 <small>AM</small></span><span class="evento-nombre">Fin de fiesta</span><span class="muted">Gracias por celebrar con nosotros</span></li>
+      <li><span class="hito"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 3v8M20.5 6.5h7"/><path d="M15 21l9-9 9 9"/><path d="M17 19v25h14V19"/><path d="M17 26l-9 5v13M31 26l9 5v13"/><path d="M4 44h40"/><path d="M21.5 44v-6a2.5 2.5 0 0 1 5 0v6"/><circle cx="24" cy="27" r="2.2"/></svg></span><span class="hora">1:00 <small>PM</small></span><span class="evento-nombre">Ceremonia</span><span class="muted">Jardín Quinta Real</span></li>
+      <li><span class="hito"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="26" r="11"/><circle cx="24" cy="26" r="6.5"/><path d="M6 12v7a2.5 2.5 0 0 0 5 0v-7M8.5 12v29"/><path d="M41 41V12c-3 2.5-4 6.5-4 12h4"/></svg></span><span class="hora">5:00 <small>PM</small></span><span class="evento-nombre">Comida</span><span class="muted">Comida, brindis y baile</span></li>
+      <li><span class="hito"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M31 9.5A16 16 0 1 0 38.5 33 13 13 0 0 1 31 9.5Z"/><path d="M39 6v7M35.5 9.5h7"/><circle cx="42" cy="20" r="1" fill="currentColor" stroke="none"/></svg></span><span class="hora">2:00 <small>AM</small></span><span class="evento-nombre">Fin de fiesta</span><span class="muted">Gracias por celebrar con nosotros</span></li>
     </ol>
   </div>
 </section>
@@ -109,15 +111,14 @@
       <h2 class="titulo">Formal de verano</h2>
       <p>Nos encantaría verte en tonos cítricos y azules empolvados. Te pedimos reservar el blanco y el marfil para la novia.</p>
       <p class="nota">[Nota sobre el clima o el tipo de suelo, p. ej. jardín: evita tacón de aguja.]</p>
+      <!-- Pinterest: cuando tengas el enlace, pégalo en href y quita los signos de comentario.
+      <a class="btn btn-light btn-pinterest" href="PEGA_AQUI_EL_ENLACE" target="_blank" rel="noopener">Ver inspiración en Pinterest</a>
+      -->
     </div>
-    <ul aria-label="Paleta sugerida" class="paleta">
-      <li><span class="muestra" style="background:#F7B557"></span><span class="eyebrow">Mimosa</span></li>
-      <li><span class="muestra" style="background:#E27921"></span><span class="eyebrow">Naranja</span></li>
-      <li><span class="muestra" style="background:#C1521E"></span><span class="eyebrow">Aperol</span></li>
-      <li><span class="muestra" style="background:#B3CDE8"></span><span class="eyebrow">Whispy</span></li>
-      <li><span class="muestra" style="background:#96AEBA"></span><span class="eyebrow">Pewter</span></li>
-      <li><span class="muestra" style="background:#5D6739"></span><span class="eyebrow">Olivo</span></li>
-    </ul>
+    <div class="atuendos">
+      <div class="atuendo"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M20 3l1.5 9M28 3l-1.5 9"/><path d="M21.5 12c1 1.4 1.8 1.6 2.5 0 .7 1.6 1.5 1.4 2.5 0l1.5 8h-8z"/><path d="M20 20c-2 8-6 16-9 23.5 4.5 1.7 9 2.2 13 2.2s8.5-.5 13-2.2C34 36 30 28 28 20"/><path d="M22.5 25l-3 18M25.5 25l3 18"/></svg><span class="eyebrow">Vestido</span></div>
+      <div class="atuendo"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M17 5 8 9.5 6 45h36l-2-35.5L31 5"/><path d="M17 5l7 18 7-18"/><path d="M22.5 8h3l-.8 3h-1.4zM23.4 11 22 20l2 3 2-3-1.4-9"/><circle cx="24" cy="30" r=".9" fill="currentColor" stroke="none"/><circle cx="24" cy="36" r=".9" fill="currentColor" stroke="none"/><path d="M31 30h5"/></svg><span class="eyebrow">Traje</span></div>
+    </div>
   </div>
 </section>
 
@@ -146,7 +147,7 @@
 <section id="rsvp" class="screen tono-verde">
   <div class="container rsvp">
     <div class="rsvp-head">
-      <p class="eyebrow">Antes del [fecha límite]</p>
+      <p class="eyebrow">Antes del 6 de septiembre de 2027</p>
       <h2 class="titulo">Confirma tu asistencia</h2>
       <p class="rsvp-nota">Escribe el código que viene en tu invitación y confirma por cada integrante.</p>
     </div>

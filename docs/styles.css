@@ -131,8 +131,9 @@ i, em { font-style: italic; }
 
 /* Itinerario: línea de tiempo horizontal */
 .itinerario { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
-.itinerario li { position: relative; display: flex; flex-direction: column; gap: 6px; padding-top: 40px; border-top: 1px solid var(--tinta); }
-.itinerario li::before { content: ""; position: absolute; top: -6px; left: 0; width: 11px; height: 11px; border-radius: 50%; background: var(--terracota); }
+.itinerario li { position: relative; display: flex; flex-direction: column; gap: 6px; padding-top: 56px; border-top: 1px solid var(--tinta); }
+.hito { position: absolute; top: -27px; left: 0; width: 54px; height: 54px; border-radius: 50%; background: var(--crema); border: 1px solid var(--tinta); display: grid; place-items: center; color: var(--texto-terracota); }
+.hito .icono { width: 30px; height: 30px; }
 .hora { font-family: var(--serif); font-weight: 300; font-size: clamp(48px, 5vw, 72px); line-height: 1; letter-spacing: -.03em; }
 .hora small { font-family: var(--sans); font-size: 14px; font-weight: 500; letter-spacing: .12em; }
 .evento-nombre { margin-top: 18px; font-size: 20px; font-weight: 500; }
@@ -223,9 +224,10 @@ i, em { font-style: italic; }
   .detalle, .detalle + .detalle { padding: 32px 0; border-left: 0; }
   .detalle + .detalle { border-top: 1px solid var(--linea-verde); }
   .itinerario { grid-template-columns: 1fr; gap: 0; border-left: 1px solid var(--tinta); margin-left: 5px; }
-  .itinerario li { border-top: 0; padding: 0 0 36px 28px; }
+  .itinerario { margin-left: 27px; }
+  .itinerario li { border-top: 0; padding: 4px 0 40px 44px; }
   .itinerario li:last-child { padding-bottom: 0; }
-  .itinerario li::before { top: 10px; left: -6px; }
+  .hito { top: 0; left: -27px; }
   .evento-nombre { margin-top: 8px; }
   .paleta { gap: 22px 16px; }
   .rsvp-panel { padding: 28px 20px; }
@@ -262,4 +264,22 @@ i, em { font-style: italic; }
   .tiendas { grid-template-columns: 1fr; margin-top: 32px; }
   .tienda-num { font-size: 26px; }
   .tienda-cta { width: 100%; }
+}
+
+/* Iconos dibujados a mano (trazo) */
+.icono { display: block; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.detalle-icono { color: var(--terracota-claro); margin-bottom: 6px; }
+.detalle-icono .icono { width: 48px; height: 48px; }
+
+/* Vestimenta: vestido y traje */
+.atuendos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.atuendo { display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 48px 24px 36px; border: 1px solid var(--linea-verde); border-radius: 6px; transition: transform .25s ease, border-color .25s ease; }
+.atuendo:hover { transform: translateY(-2px); border-color: rgba(244, 238, 226, .5); }
+.atuendo .icono { width: 140px; height: 140px; stroke-width: 1.1; color: var(--crema); }
+.atuendo .eyebrow { color: var(--terracota-claro); }
+.btn-pinterest { margin-top: 32px; }
+@media (max-width: 680px) {
+  .atuendo { padding: 32px 12px 24px; gap: 14px; }
+  .atuendo .icono { width: 92px; height: 92px; }
+  .btn-pinterest { width: 100%; }
 }
