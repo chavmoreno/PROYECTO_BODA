@@ -1,0 +1,74 @@
+:root {
+  color-scheme: only light;
+  --crema: #F4EEE2;
+  --verde: #3E4936;
+  --terracota: #B0563A;
+  --terracota-osc: #924530;
+  --tinta: #29261F;
+  --script: "Allura", "Snell Roundhand", cursive;
+  --sans: "Raleway", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--crema); color: var(--tinta); font: 500 16px/1.5 var(--sans); }
+[hidden] { display: none !important; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+:focus-visible { outline: 2px solid var(--terracota); outline-offset: 3px; }
+
+.pagina { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; padding: 24px 16px 32px; }
+
+/* La invitación conserva la proporción del diseño de Canva (480 × 672).
+   Los textos se colocan con las mismas medidas del diseño, en % del ancho/alto. */
+.invitacion {
+  position: relative; container-type: inline-size;
+  width: min(100%, 560px, calc((100svh - 140px) * 480 / 672));
+  min-width: min(100%, 320px);
+  aspect-ratio: 480 / 672;
+  box-shadow: 0 1px 2px rgba(41, 38, 31, .08), 0 12px 40px rgba(41, 38, 31, .10);
+  animation: entrar .8s ease-out both;
+}
+.fondo { display: block; width: 100%; height: 100%; }
+
+/* Tarjeta: x 12.7%–58.9%, y 74.3%–97.1% del diseño. Todo centrado en ella. */
+.campo-nombre, .campo-etiqueta, .campo-codigo { position: absolute; left: 13.6%; width: 44.5%; margin: 0; text-align: center; color: var(--verde); }
+.campo-nombre {
+  top: 77.6%; height: 11.2%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--script); font-size: 6.4cqw; line-height: .98;
+  overflow: hidden; overflow-wrap: anywhere;
+}
+.campo-linea { position: absolute; top: 90.2%; left: calc(35.85% - 3.55%); width: 7.1%; height: 1px; background: #6A714B; }
+.campo-etiqueta { top: 91.1%; font-weight: 700; font-size: 1.67cqw; line-height: 1; letter-spacing: .197em; text-transform: uppercase; }
+.campo-codigo { top: 92.9%; font-weight: 700; font-size: 3.9cqw; line-height: 1; letter-spacing: .075em; }
+
+/* Estados */
+.invitacion[data-estado="cargando"] .campo-nombre { font-family: var(--sans); font-size: 2.6cqw; letter-spacing: .1em; opacity: .7; }
+.invitacion[data-estado="cargando"] .campo-etiqueta, .invitacion[data-estado="cargando"] .campo-linea,
+.invitacion[data-estado="error"] .campo-etiqueta, .invitacion[data-estado="error"] .campo-linea { visibility: hidden; }
+
+/* Botones debajo de la invitación */
+.acciones { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; width: min(100%, 560px); }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 26px; border-radius: 999px;
+  font: 700 14px/1 var(--sans); letter-spacing: .04em; text-decoration: none; cursor: pointer;
+  transition: background-color .2s ease, color .2s ease, transform .2s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(1px); }
+.btn-solid { background: var(--terracota); color: #FFFCF6; border: 1px solid var(--terracota); }
+.btn-solid:hover { background: var(--terracota-osc); border-color: var(--terracota-osc); }
+.btn-outline { background: transparent; color: var(--tinta); border: 1px solid var(--tinta); }
+.btn-outline:hover { background: var(--tinta); color: var(--crema); }
+
+.aviso { width: min(100%, 560px); margin: 0; text-align: center; font-size: 16px; }
+
+@keyframes entrar { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 480px) {
+  .pagina { justify-content: flex-start; padding: 12px 10px 28px; }
+  .invitacion { width: 100%; }
+  .acciones .btn { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

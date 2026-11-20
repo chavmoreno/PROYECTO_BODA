@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://script.google.com https://script.googleusercontent.com; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="only light">
+<meta name="theme-color" content="#F4EEE2">
+<title>Invitación · Ana &amp; Salvador</title>
+<meta name="description" content="Tu invitación a la boda de Ana & Salvador, 6 de noviembre de 2027, Jardín Quinta Real, Cuernavaca.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Raleway:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="invitacion.css?v=4">
+</head>
+<body>
+<main class="pagina">
+  <!-- La imagen es la última hoja del diseño de Canva, sin nombre, sin código
+       y sin "Confirma aquí". Encima se escriben el grupo y el código del Sheets. -->
+  <div class="invitacion" id="invitacion" data-estado="cargando">
+    <img class="fondo" src="img/fondo.webp" width="1429" height="2000"
+         alt="Invitación a la boda de Ana y Salvador: sábado 6 de noviembre de 2027, Jardín Quinta Real, Cuernavaca. Ceremonia 1:00 PM, cóctel 2:00 PM, comida 4:00 PM.">
+    <p class="campo-nombre" id="inv-nombre" aria-live="polite"></p>
+    <span class="campo-linea" aria-hidden="true"></span>
+    <p class="campo-etiqueta">Código de invitado</p>
+    <p class="campo-codigo" id="inv-codigo"></p>
+  </div>
+
+  <div class="acciones" id="acciones">
+    <a class="btn btn-solid" id="btn-confirmar" href="../#rsvp">Confirmar asistencia</a>
+    <a class="btn btn-outline" href="../">Ver detalles de la boda</a>
+  </div>
+
+  <!-- Solo aparece si el enlace no trae código o el código ya no existe -->
+  <p class="aviso" id="aviso" role="status" hidden></p>
+</main>
+
+<script src="../config.js?v=4"></script>
+<script src="invitacion.js?v=3"></script>
+</body>
+</html>
