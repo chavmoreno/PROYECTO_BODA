@@ -6,172 +6,189 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://script.google.com https://script.googleusercontent.com; form-action 'none'; base-uri 'none'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="color-scheme" content="only light">
-<meta name="theme-color" content="#F6F3EA">
-<title>Ana &amp; Salvador</title>
-<meta name="description" content="Ana & Salvador se casan el 6 de noviembre de 2027 en Jardín Quinta Real. Confirma tu asistencia.">
+<meta name="theme-color" content="#3E4936">
+<title>Ana &amp; Salvador · 6 de noviembre de 2027</title>
+<meta name="description" content="Ana & Salvador se casan el 6 de noviembre de 2027 en Jardín Quinta Real, Cuernavaca. Confirma tu asistencia.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Italianno&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=2">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
 
-<!-- Navegación -->
 <header class="nav-wrap">
-  <nav aria-label="Principal" class="nav">
-    <a href="#inicio" class="nav-logo">A &amp; S</a>
-    <div class="nav-links eyebrow">
+  <nav aria-label="Principal" class="nav container">
+    <a href="#inicio" class="nav-logo">A<i>&amp;</i>S</a>
+    <div class="nav-links">
       <a href="#detalles">Detalles</a>
+      <a href="#itinerario">Itinerario</a>
       <a href="#regalos">Regalos</a>
-      <a href="#rsvp" class="accent">Confirmar</a>
+      <a href="#rsvp" class="nav-cta">Confirmar</a>
     </div>
   </nav>
 </header>
 
-<!-- Portada -->
+<main>
+<!-- Portada: foto a pantalla completa; nombres arriba, fecha y lugar abajo -->
 <section id="inicio" class="hero">
-  <div class="hero-text">
-    <p class="eyebrow accent">Nos casamos</p>
-    <h1 class="script hero-title">Ana<br>&amp; Salvador</h1>
-    <div class="hero-date">
-      <p class="cifra">06 · 11 · 27</p>
-      <p class="subtitulo muted">Sábado 6 de noviembre de 2027<br>Jardín Quinta Real</p>
+  <img class="hero-img" src="img/portada.jpg" alt="Ana y Salvador en la playa; él la carga en la espalda y ella muestra su anillo de compromiso" fetchpriority="high">
+  <div class="hero-velo" aria-hidden="true"></div>
+  <div class="hero-top container">
+    <p class="eyebrow">Nos casamos</p>
+    <h1 class="hero-title">Ana <i>&amp;</i> Salvador</h1>
+  </div>
+  <div class="hero-bottom container">
+    <div class="hero-info">
+      <p class="hero-fecha">06 <span>·</span> 11 <span>·</span> 2027</p>
+      <p class="hero-lugar">Sábado · Jardín Quinta Real, Cuernavaca</p>
     </div>
     <div class="btn-row">
       <a href="#rsvp" class="btn btn-solid">Confirmar asistencia</a>
-      <a href="#detalles" class="btn btn-outline">Ver detalles</a>
+      <a href="#detalles" class="btn btn-light">Ver detalles</a>
     </div>
-  </div>
-  <div class="hero-photo">
-    <img src="img/portada.jpg" alt="Los novios en la playa, él la carga en la espalda y ella muestra su anillo de compromiso">
   </div>
 </section>
 
-<!-- Historia -->
-<section id="historia" class="band band-mantequilla">
-  <div class="container center stack">
-    <p class="eyebrow aperol">Capítulo uno</p>
-    <h2 class="script titulo-lg azul">Nuestra historia</h2>
-    <p class="lead">Después de 5 años de ser novios y 9 de conocernos, decidimos dar el siguiente paso y queremos que seas parte.</p>
-    <p class="script firma">— Ana &amp; Salvador</p>
-    <img class="historia-img" src="img/historia.webp" alt="Las manos de los novios entrelazadas frente al mar, con el anillo de compromiso" loading="lazy">
+<!-- Historia: momento tipográfico, sin foto -->
+<section id="historia" class="screen tono-crema">
+  <div class="container historia">
+    <h2 class="eyebrow accent">Nuestra historia</h2>
+    <p class="historia-frase">Después de <em>5 años</em> de ser novios y <em>9</em> de conocernos, decidimos dar el siguiente paso y queremos que seas parte.</p>
+    <dl class="cifras">
+      <div><dt>Años de conocernos</dt><dd>9</dd></div>
+      <div><dt>Años de novios</dt><dd>5</dd></div>
+      <div><dt>El año del sí</dt><dd>2027</dd></div>
+    </dl>
+    <p class="firma">— Ana &amp; Salvador</p>
   </div>
 </section>
 
 <!-- Detalles -->
-<section id="detalles" class="container section">
-  <div class="section-head">
-    <p class="eyebrow accent">El gran día</p>
-    <h2 class="script titulo-lg">Detalles</h2>
-  </div>
-  <div class="cards">
-    <article class="card">
-      <p class="eyebrow muted">1:00 PM</p>
-      <h3 class="script titulo-md azul">Ceremonia</h3>
-      <p class="subtitulo">Jardín Quinta Real</p>
-      <p class="muted">Sábado 6 de noviembre de 2027</p>
-      <a class="eyebrow card-link" href="https://maps.app.goo.gl/5q1c95rzVZUVkQ62A" target="_blank" rel="noopener">Cómo llegar</a>
-    </article>
-    <article class="card card-azul">
-      <p class="eyebrow mantequilla">Hospedaje</p>
-      <h3 class="script titulo-md">Dónde quedarse</h3>
-      <p class="subtitulo">[Hotel sugerido]</p>
-      <p>Menciona nuestra boda para la tarifa especial. Código: [CÓDIGO]</p>
-    </article>
+<section id="detalles" class="screen tono-verde">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">El gran día</p>
+      <h2 class="titulo">Detalles</h2>
+    </div>
+    <div class="detalles">
+      <article class="detalle">
+        <p class="eyebrow">Ceremonia · 1:00 PM</p>
+        <h3 class="detalle-titulo">Jardín Quinta Real</h3>
+        <p>Cuernavaca, Morelos<br>Sábado 6 de noviembre de 2027</p>
+        <a class="link" href="https://maps.app.goo.gl/5q1c95rzVZUVkQ62A" target="_blank" rel="noopener">Cómo llegar</a>
+      </article>
+      <article class="detalle">
+        <p class="eyebrow">Hospedaje</p>
+        <h3 class="detalle-titulo">[Hotel sugerido]</h3>
+        <p>Menciona nuestra boda para la tarifa especial.<br>Código: [CÓDIGO]</p>
+      </article>
+    </div>
   </div>
 </section>
 
 <!-- Itinerario -->
-<section id="itinerario" class="band band-nube">
-  <div class="container narrow section">
+<section id="itinerario" class="screen tono-crema">
+  <div class="container">
     <div class="section-head">
-      <p class="eyebrow">Paso a paso</p>
-      <h2 class="script titulo-lg">Itinerario</h2>
+      <p class="eyebrow accent">Paso a paso</p>
+      <h2 class="titulo">Itinerario</h2>
     </div>
     <ol class="itinerario">
-      <li><span class="hora">1:00 PM</span><span class="evento"><span class="script">Ceremonia</span><span>Jardín Quinta Real</span></span></li>
-      <li><span class="hora">5:00 PM</span><span class="evento"><span class="script">Comida</span><span>Comida, brindis y baile</span></span></li>
-      <li><span class="hora">2:00 AM</span><span class="evento"><span class="script">Fin de fiesta</span><span>Gracias por celebrar con nosotros</span></span></li>
+      <li><span class="hora">1:00 <small>PM</small></span><span class="evento-nombre">Ceremonia</span><span class="muted">Jardín Quinta Real</span></li>
+      <li><span class="hora">5:00 <small>PM</small></span><span class="evento-nombre">Comida</span><span class="muted">Comida, brindis y baile</span></li>
+      <li><span class="hora">2:00 <small>AM</small></span><span class="evento-nombre">Fin de fiesta</span><span class="muted">Gracias por celebrar con nosotros</span></li>
     </ol>
   </div>
 </section>
 
 <!-- Vestimenta -->
-<section id="vestimenta" class="container section split">
-  <div class="split-text">
-    <p class="eyebrow accent">Código de vestimenta</p>
-    <h2 class="script titulo-lg">Formal de verano</h2>
-    <p>Nos encantaría verte en tonos cítricos y azules empolvados. Te pedimos reservar el blanco y el marfil para la novia.</p>
-    <p class="nota muted">[Nota sobre el clima o el tipo de suelo, p. ej. jardín: evita tacón de aguja.]</p>
+<section id="vestimenta" class="screen tono-verde">
+  <div class="container vestimenta">
+    <div class="vestimenta-text">
+      <p class="eyebrow">Código de vestimenta</p>
+      <h2 class="titulo">Formal de verano</h2>
+      <p>Nos encantaría verte en tonos cítricos y azules empolvados. Te pedimos reservar el blanco y el marfil para la novia.</p>
+      <p class="nota">[Nota sobre el clima o el tipo de suelo, p. ej. jardín: evita tacón de aguja.]</p>
+    </div>
+    <ul aria-label="Paleta sugerida" class="paleta">
+      <li><span class="muestra" style="background:#F7B557"></span><span class="eyebrow">Mimosa</span></li>
+      <li><span class="muestra" style="background:#E27921"></span><span class="eyebrow">Naranja</span></li>
+      <li><span class="muestra" style="background:#C1521E"></span><span class="eyebrow">Aperol</span></li>
+      <li><span class="muestra" style="background:#B3CDE8"></span><span class="eyebrow">Whispy</span></li>
+      <li><span class="muestra" style="background:#96AEBA"></span><span class="eyebrow">Pewter</span></li>
+      <li><span class="muestra" style="background:#5D6739"></span><span class="eyebrow">Olivo</span></li>
+    </ul>
   </div>
-  <ul aria-label="Paleta sugerida" class="paleta">
-    <li><span style="background:#F7B557"></span><span class="eyebrow">Mimosa</span></li>
-    <li><span style="background:#E27921"></span><span class="eyebrow">Naranja</span></li>
-    <li><span style="background:#C1521E"></span><span class="eyebrow">Aperol</span></li>
-    <li><span style="background:#B3CDE8"></span><span class="eyebrow">Whispy</span></li>
-    <li><span style="background:#96AEBA"></span><span class="eyebrow">Pewter</span></li>
-    <li><span style="background:#5D6739"></span><span class="eyebrow">Olivo</span></li>
-  </ul>
 </section>
 
 <!-- Regalos -->
-<section id="regalos" class="band band-mantequilla">
-  <div class="container narrow section center stack">
-    <p class="eyebrow aperol">Mesa de regalos</p>
-    <h2 class="script titulo-lg azul">Tu presencia es el mejor regalo</h2>
-    <p class="lead-sm">Si deseas tener un detalle con nosotros, encontrarás nuestra mesa aquí:</p>
-    <div class="btn-row center-row">
-      <a href="#regalos" class="btn btn-outline">[Tienda 1]</a>
-      <a href="#regalos" class="btn btn-outline">[Tienda 2]</a>
+<section id="regalos" class="screen tono-crema">
+  <div class="container regalos">
+    <p class="eyebrow accent">Mesa de regalos</p>
+    <h2 class="titulo titulo-xl">Tu presencia es el mejor regalo</h2>
+    <p class="lead">Si deseas tener un detalle con nosotros, encontrarás nuestra mesa aquí:</p>
+    <div class="tiendas">
+      <a class="tienda" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/60077690" target="_blank" rel="noopener">
+        <img class="tienda-logo" src="img/liverpool.svg" alt="Liverpool" width="287" height="66">
+        <span class="tienda-dato"><span class="eyebrow muted">Número de evento</span><span class="tienda-num">60077690</span></span>
+        <span class="tienda-cta">Ver mesa en Liverpool</span>
+      </a>
+      <a class="tienda" href="https://www.amazon.com.mx/wedding/share/bodaanaychava" target="_blank" rel="noopener">
+        <img class="tienda-logo tienda-logo-amazon" src="img/amazon.svg" alt="Amazon" width="603" height="182">
+        <span class="tienda-dato"><span class="eyebrow muted">Lista de boda</span><span class="tienda-num">bodaanaychava</span></span>
+        <span class="tienda-cta">Ver mesa en Amazon</span>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- RSVP -->
-<section id="rsvp" class="rsvp section">
-  <div class="section-head">
-    <p class="eyebrow accent">Antes del [fecha límite]</p>
-    <h2 class="script titulo-lg">Confirma tu asistencia</h2>
-  </div>
-
-  <!-- Paso 1: código -->
-  <form id="form-codigo" class="form" novalidate>
-    <div class="field">
-      <label for="rsvp-codigo" class="eyebrow">Código de invitación</label>
-      <input id="rsvp-codigo" name="codigo" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Como aparece en tu invitación" required>
+<section id="rsvp" class="screen tono-verde">
+  <div class="container rsvp">
+    <div class="rsvp-head">
+      <p class="eyebrow">Antes del [fecha límite]</p>
+      <h2 class="titulo">Confirma tu asistencia</h2>
+      <p class="rsvp-nota">Escribe el código que viene en tu invitación y confirma por cada integrante.</p>
     </div>
-    <p id="codigo-error" class="error" role="alert" hidden></p>
-    <button type="submit" class="btn btn-solid btn-block">Buscar invitación</button>
-  </form>
 
-  <!-- Paso 2: integrantes -->
-  <form id="form-invitados" class="form" novalidate hidden>
-    <div class="grupo-head">
-      <p class="eyebrow muted">Invitación para</p>
-      <p id="grupo-nombre" class="script titulo-sm azul"></p>
+    <div class="rsvp-panel">
+      <!-- Paso 1: código -->
+      <form id="form-codigo" class="form" novalidate>
+        <div class="field">
+          <label for="rsvp-codigo" class="eyebrow">Código de invitación</label>
+          <input id="rsvp-codigo" name="codigo" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Como aparece en tu invitación" required>
+        </div>
+        <p id="codigo-error" class="error" role="alert" hidden></p>
+        <button type="submit" class="btn btn-solid btn-block">Buscar invitación</button>
+      </form>
+
+      <!-- Paso 2: integrantes -->
+      <form id="form-invitados" class="form" novalidate hidden>
+        <div class="grupo-head">
+          <p class="eyebrow muted">Invitación para</p>
+          <p id="grupo-nombre" class="grupo-nombre"></p>
+        </div>
+        <div id="lista-invitados" class="invitados"></div>
+        <p id="invitados-error" class="error" role="alert" hidden></p>
+        <button type="submit" class="btn btn-solid btn-block">Enviar confirmación</button>
+        <button type="button" id="btn-otro-codigo" class="link-btn">Usar otro código</button>
+      </form>
+
+      <!-- Paso 3: gracias -->
+      <div id="rsvp-gracias" class="gracias" role="status" hidden>
+        <p class="gracias-titulo">¡Gracias!</p>
+        <p id="gracias-texto" class="gracias-texto"></p>
+        <button type="button" id="btn-editar" class="btn btn-outline">Editar respuesta</button>
+      </div>
     </div>
-    <div id="lista-invitados" class="invitados"></div>
-    <p id="invitados-error" class="error" role="alert" hidden></p>
-    <button type="submit" class="btn btn-solid btn-block">Enviar confirmación</button>
-    <button type="button" id="btn-otro-codigo" class="link-btn eyebrow">Usar otro código</button>
-  </form>
-
-  <!-- Paso 3: gracias -->
-  <div id="rsvp-gracias" class="gracias" role="status" hidden>
-    <p class="script gracias-titulo">¡Gracias!</p>
-    <p id="gracias-texto" class="gracias-texto"></p>
-    <button type="button" id="btn-editar" class="btn btn-outline">Editar respuesta</button>
   </div>
 </section>
+</main>
 
-<!-- Pie -->
-<footer class="footer">
+<footer class="footer tono-crema">
   <div class="container footer-inner">
-    <p class="script footer-names">Ana &amp; Salvador</p>
-    <p class="eyebrow">06 · 11 · 27 · Jardín Quinta Real</p>
-  </div>
-  <div class="footer-stripes" aria-hidden="true">
-    <span style="background:#B3CDE8"></span><span style="background:#C1521E"></span><span style="background:#F7B557"></span><span style="background:#5D6739"></span><span style="background:#F2E3AE"></span>
+    <p class="footer-names">Ana <i>&amp;</i> Salvador</p>
+    <p class="eyebrow muted">06 · 11 · 2027 — Jardín Quinta Real, Cuernavaca</p>
   </div>
 </footer>
 
@@ -192,7 +209,7 @@
   </fieldset>
 </template>
 
-<script src="config.js?v=2"></script>
-<script src="app.js?v=2"></script>
+<script src="config.js?v=4"></script>
+<script src="app.js?v=4"></script>
 </body>
 </html>

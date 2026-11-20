@@ -68,4 +68,4 @@ Con `config.js` vacío, la página funciona en **modo demo** con el código `DEM
 
 ## Pendientes del diseño
 
-Textos entre corchetes en `docs/index.html`: `[Hotel sugerido]`, `[CÓDIGO]`, `[fecha límite]`, `[Tienda 1]`, `[Tienda 2]` y la nota de vestimenta.
+Textos entre corchetes en `docs/index.html`: `[Hotel sugerido]`, `[CÓDIGO]`, `[fecha límite]` y la nota de vestimenta.
