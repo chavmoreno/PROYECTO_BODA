@@ -283,3 +283,17 @@ i, em { font-style: italic; }
   .atuendo .icono { width: 92px; height: 92px; }
   .btn-pinterest { width: 100%; }
 }
+
+/* Detalles en color vino, solo con la etiqueta como encabezado */
+.tono-vino { background: #60252B; }
+.tono-vino .detalles { border-top: 0; }
+.tono-vino .eyebrow:not(.muted), .tono-vino .detalle .link, .tono-vino .detalle-icono { color: var(--salvia); }
+/* Encabezado solo para lectores de pantalla */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* Detalles y Confirmación tienen poco contenido: miden lo que su contenido, sin pantalla completa */
+#detalles.screen, #rsvp.screen { min-height: 0; padding: 120px 0; }
+@media (max-width: 680px) {
+  #detalles.screen, #rsvp.screen { padding: 72px 0; }
+}
+.footer-inner { padding-top: 36px; padding-bottom: 36px; }
