@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Allura&family=Raleway:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="invitacion.css?v=7">
+<link rel="stylesheet" href="invitacion.css?v=11">
 </head>
 <body>
 <main class="pagina">
@@ -22,7 +22,38 @@
   <div class="invitacion" id="invitacion" data-estado="cargando">
     <img class="fondo" src="img/fondo.webp" width="1429" height="2000"
          alt="Invitación a la boda de Ana y Salvador: sábado 6 de noviembre de 2027, Jardín Quinta Real, Cuernavaca. Ceremonia 1:00 PM, cóctel 2:00 PM, comida 4:00 PM.">
-    <div class="sello" aria-hidden="true"><div class="sello-papel"><img src="../img/portada.jpg" alt="" width="1800" height="1200" decoding="async"></div></div>
+    <div class="sello" aria-hidden="true">
+      <div class="sello-sombra"><div class="sello-papel"><div class="sello-foto"><img src="../img/portada.jpg" alt="" width="1800" height="1200" decoding="async"></div></div></div>
+      <!-- Matasellos dibujado: círculo con lugar y fecha, y líneas onduladas -->
+      <svg class="matasello" viewBox="0 0 220 120" focusable="false">
+        <defs>
+          <path id="ms-arriba" d="M116 60a34 34 0 0 1 68 0"/>
+          <path id="ms-abajo" d="M108 60a42 42 0 0 0 84 0"/>
+          <filter id="ms-tinta" x="-5%" y="-5%" width="110%" height="110%">
+            <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="7" result="ruido"/>
+            <feColorMatrix in="ruido" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.5" result="desgaste"/>
+            <feComposite in="SourceGraphic" in2="desgaste" operator="in"/>
+          </filter>
+        </defs>
+        <g filter="url(#ms-tinta)">
+          <g fill="none" stroke="currentColor" stroke-linecap="round">
+            <path stroke-width="2.4" d="M2 46q9-7 18 0t18 0 18 0 18 0 18 0 14 0"/>
+            <path stroke-width="2.4" d="M2 60q9-7 18 0t18 0 18 0 18 0 18 0 10 0"/>
+            <path stroke-width="2.4" d="M2 74q9-7 18 0t18 0 18 0 18 0 18 0 14 0"/>
+            <circle cx="150" cy="60" r="46" stroke-width="2.6"/>
+            <circle cx="150" cy="60" r="28" stroke-width="1.6"/>
+          </g>
+          <g fill="currentColor" font-family="Raleway, sans-serif" font-weight="700" text-anchor="middle">
+            <text font-size="10.5" letter-spacing="2.2"><textPath href="#ms-arriba" startOffset="50%">CUERNAVACA</textPath></text>
+            <text font-size="10.5" letter-spacing="2.2"><textPath href="#ms-abajo" startOffset="50%">MÉXICO</textPath></text>
+            <text x="150" y="57" font-size="11" letter-spacing="1">06 NOV</text>
+            <text x="150" y="70" font-size="11" letter-spacing="1.5">2027</text>
+            <path d="M107 60l2.2-1.6 2.2 1.6-.8-2.6 2.2-1.6h-2.7l-.9-2.6-.9 2.6h-2.7l2.2 1.6z" transform="translate(-2 2)"/>
+            <path d="M189 60l2.2-1.6 2.2 1.6-.8-2.6 2.2-1.6h-2.7l-.9-2.6-.9 2.6h-2.7l2.2 1.6z" transform="translate(-1 2)"/>
+          </g>
+        </g>
+      </svg>
+    </div>
     <p class="campo-nombre" id="inv-nombre" aria-live="polite"></p>
     <span class="campo-linea" aria-hidden="true"></span>
     <p class="campo-etiqueta">Código de invitado</p>
