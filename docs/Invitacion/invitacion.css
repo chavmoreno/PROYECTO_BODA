@@ -72,3 +72,25 @@ body { background: var(--crema); color: var(--tinta); font: 500 16px/1.5 var(--s
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* Foto de los novios como sello postal, inclinada sobre el borde del arco */
+.sello {
+  position: absolute; top: 24.8%; left: 75.8%; width: 18%;
+  transform: rotate(11deg); transform-origin: center;
+  filter: drop-shadow(0 .5cqw .8cqw rgba(41, 38, 31, .28));
+}
+.sello-papel {
+  --r: .85cqw;                                   /* radio de cada perforación */
+  aspect-ratio: 1; padding: calc(var(--r) * 2.1);
+  background: #FFFCF6;
+  /* Bordes perforados: un rectángulo sólido + círculos centrados en el borde */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    radial-gradient(circle, #0000 calc(var(--r) - .5px), #000 var(--r)) calc(var(--r) * -1.25) calc(var(--r) * -1.25) / calc(var(--r) * 2.5) calc(var(--r) * 2.5) round;
+          mask:
+    linear-gradient(#000 0 0) content-box,
+    radial-gradient(circle, #0000 calc(var(--r) - .5px), #000 var(--r)) calc(var(--r) * -1.25) calc(var(--r) * -1.25) / calc(var(--r) * 2.5) calc(var(--r) * 2.5) round;
+}
+.sello-papel img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 47% 40%; transition: transform .5s ease; }
+.sello:hover .sello-papel img { transform: scale(1.03); }
+.sello-papel { overflow: hidden; }
